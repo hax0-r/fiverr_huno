@@ -32,9 +32,12 @@ nav {
         align-items: center;
         height: 5rem;
 
-        h1 {
-            color: var(--blue-color);
-            font-size: clamp(1.4rem, -0.875rem + 8.333vw, 2rem);
+        a{
+            text-decoration: none;
+            h1 {
+                color: var(--blue-color);
+                font-size: clamp(1.4rem, -0.875rem + 8.333vw, 2rem);
+            }
         }
 
         ul {
