@@ -32,8 +32,9 @@ nav {
         align-items: center;
         height: 5rem;
 
-        a{
+        a {
             text-decoration: none;
+
             h1 {
                 color: var(--blue-color);
                 font-size: clamp(1.4rem, -0.875rem + 8.333vw, 2rem);
@@ -70,9 +71,29 @@ nav {
                 }
             }
         }
+
+        .fa-bars {
+            display: none;
+            font-size: 1.4rem;
+            color: var(--blue-color);
+            cursor: pointer;
+        }
     }
 }
 
+@media screen and (max-width:1215px) {
+    nav {
+        .main {
+            ul {
+                display: none;
+            }
+
+            .fa-bars {
+                display: block;
+            }
+        }
+    }
+}
 
 #navPAdding {
     padding-top: 5rem;
@@ -161,6 +182,91 @@ nav {
     position: fixed;
 }
 
+.resNavbar {
+    width: 100%;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    transition: 200ms all;
+    position: fixed;
+    height: 0;
+    overflow: hidden;
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        transition: 200ms all;
+
+        .f {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            padding-bottom: .5rem;
+            border-bottom: 2px solid #0069d9;
+            cursor: pointer;
+        }
+
+        .navClickRes {
+            height: 0rem;
+            overflow: hidden;
+            transition: 200ms all;
+            
+            .main {
+                transition: 200ms all;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+
+                h1 {
+                    font-size: 1.2rem;
+                    padding-bottom: .5rem;
+                }
+
+                .sec {
+                    width: 100%;
+                    height: .1rem;
+                    margin-top: 1rem;
+                    background-color: var(--white-color);
+                }
+
+                .links {
+                    padding-top: 1rem;
+
+                    ul {
+                        list-style: none;
+
+                        li {
+                            padding-bottom: .6rem;
+
+                            a {
+                                color: var(--white-color);
+                                text-decoration: none;
+                                transition: 200ms all;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                    color: #ffffffc1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .navClickResShow,.navClickResShowAbout,.navClickResShowServices,.navClickResShowBlog,.navClickResShowNext {
+            height: unset;
+            transition: 200ms all;
+        }
+    }
+}
+
+.resNavbarUnset{
+    padding: 1rem 2rem;
+    height: unset;
+}
+
 .improving {
     display: flex;
     justify-content: center;
@@ -197,7 +303,7 @@ nav {
         flex-wrap: wrap;
 
         .box {
-            width: 25rem;
+            max-width: 25rem;
             min-height: 30rem;
             padding: 1rem;
             overflow: hidden;
@@ -230,22 +336,41 @@ nav {
     }
 }
 
+@media screen and (max-width:500px) {
+
+    .featured {
+        padding: 3rem 1rem;
+
+        .boxes {
+            .box {
+                padding: 0;
+            }
+        }
+    }
+}
+
 footer {
     background-color: var(--blue-color);
     color: var(--white-color);
-    max-width: 80rem;
-    margin: auto;
     padding: 3rem;
 
     .main {
+        max-width: 80rem;
+        margin: auto;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
+        row-gap: 2rem;
 
         h2 {
             font-size: clamp(1.3rem, -0.875rem + 8.333vw, 2.5rem);
+            width: 10rem;
         }
 
         .quickLinks {
+            /* border: 2px solid red; */
+            width: 10rem;
+
             h2 {
                 font-size: 1.2rem;
                 padding-bottom: 1rem;
@@ -270,6 +395,8 @@ footer {
         }
 
         .icons {
+            width: 10rem;
+
             h2 {
                 font-size: 1.5rem;
                 padding-bottom: 1rem;
@@ -279,6 +406,22 @@ footer {
                 color: var(--white-color);
                 font-size: 1.6rem;
                 margin-right: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    footer {
+        padding: 1rem;
+        padding-top: 3rem;
+
+        .main {
+
+            .quickLinks,
+            .icons,
+            h2 {
+                width: 100%;
             }
         }
     }
